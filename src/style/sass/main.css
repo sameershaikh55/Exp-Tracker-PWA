@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.web_container {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.web_container .innerWeb_container {
+  height: 80%;
+  width: 80%;
+  background-color: #f2f2f2;
+  border-radius: 0.6rem;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.web_container .innerWeb_container .inner_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 90%;
+  width: 86%;
+  margin: auto;
+  padding: 5rem 0rem;
+}
+
+.web_container .innerWeb_container .inner_body .right_side,
+.web_container .innerWeb_container .inner_body .left_side {
+  width: 52%;
+  height: 100%;
+}
+
+.web_container .innerWeb_container .inner_body .left_side {
+  width: 45%;
+}
+
+.Header_Container {
+  height: 8vh;
+  width: 100%;
+  background-color: #3f51b5;
+  color: white;
+  letter-spacing: 2.5px;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 6px 6px 0px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Header_Container h1 {
+  font-size: 3rem;
+}
+
+.balance_section {
+  margin: 15px 0px;
+}
+
+.balance_section strong {
+  font-size: 1.5rem;
+}
+
+.balance_section h1 {
+  font-size: 3.5rem;
+  margin-top: -10px;
+}
+
+.P-balance {
+  color: green;
+}
+
+.N-balance {
+  color: red;
+}
+
+.AS_Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 12px 0px;
+  padding: 18px 0px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.AS_Container h2 {
+  font-size: 1.5rem;
+}
+
+.AS_Container h3 {
+  font-size: 2.2rem;
+}
+
+.addTransaction_section h2 {
+  margin: 20px 0px;
+  font-size: 1.8rem;
+  border-bottom: 1px solid black;
+}
+
+.addTransaction_section input,
+.addTransaction_section button,
+.addTransaction_section .MuiFormControl-root {
+  width: 100%;
+}
+
+.addTransaction_section form input {
+  padding: 0rem 1rem;
+  font-size: 1.6rem;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+.addTransaction_section form input:focus {
+  border: none;
+  outline: 1.4px solid #3f51b5 !important;
+}
+
+.addTransaction_section form label {
+  font-size: 1.8rem;
+}
+
+.addTransaction_section form input {
+  height: 40px;
+}
+
+.addTransaction_section .MuiFormLabel-root {
+  font-size: 1.7rem;
+}
+
+.addTransaction_section .MuiSvgIcon-root {
+  font-size: 2.4rem;
+}
+
+.addTransaction_section .MuiInputBase-root {
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+}
+
+.addTransaction_section .MuiOutlinedInput-adornedStart {
+  padding-left: 7px;
+}
+
+.addTransaction_section .MuiButton-contained {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 3px;
+}
+
+.addTransaction_section .MuiButton-contained:hover {
+  background-color: #2f41a7;
+}
+
+.addTransaction_section .MuiInputBase-input {
+  background-color: white;
+}
+
+.MuiPickersToolbarText-toolbarBtnSelected {
+  font-size: 2.3rem !important;
+}
+
+.MuiTypography-subtitle1 {
+  font-size: 1.4rem !important;
+}
+
+.MuiTypography-body1 {
+  font-size: 1.5rem !important;
+}
+
+.MuiTypography-body2 {
+  font-size: 1.4rem !important;
+}
+
+.MuiSvgIcon-root {
+  font-size: 2.4rem !important;
+}
+
+.MuiTypography-caption {
+  font-size: 1.3rem !important;
+}
+
+.transaction_history {
+  margin-left: 3rem;
+  background-color: white;
+  height: 100%;
+  border-radius: 6px;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction_history .TH-body {
+  overflow-y: scroll;
+  height: 89%;
+}
+
+.transaction_history .TH-body::-webkit-scrollbar {
+  width: 0.1em;
+}
+
+.transaction_history .TH-body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.transaction_history .TH-body::-webkit-scrollbar-thumb {
+  background-color: #3f51b5;
+  outline: 1px solid slategrey;
+}
+
+.transaction_history h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  height: 6rem;
+  background-color: #3f51b5;
+  color: white;
+  letter-spacing: 2.2px;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.each_transaction {
+  padding: 1rem 2rem;
+}
+
+.each_transaction div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 2rem;
+  letter-spacing: 1.2px;
+}
+
+.each_transaction div:nth-last-child(1) {
+  font-size: 1.1rem;
+  margin-top: -6px;
+  letter-spacing: 3px;
+}
+
+.each_transaction:nth-child(odd) {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+/*# sourceMappingURL=main.css.map */
