@@ -9,21 +9,8 @@ import { TransactionType, ProviderType } from "../types/type";
 const InitialState: TransactionType = {
 	transactions: [
 		{ id: 1, description: "Cash", amount: 100.0, date: "27/3/2021" },
-		// { id: 2, description: "Expense", amount: -500.0, date: "27/3/2021" },
-		// { id: 3, description: "Received", amount: 200.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
-		// { id: 4, description: "Expense", amount: -900.0, date: "27/3/2021" },
 	],
 };
-
-console.log(InitialState);
 
 // CREATING CONTEXT
 const GlobalState = createContext<TransactionType>(InitialState);

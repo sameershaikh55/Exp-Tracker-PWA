@@ -30,3 +30,8 @@ export type ValidateType = {
 	desciptionV?: string;
 	amountV?: string;
 };
+
+export type Inputs = {
+	description: string;
+	amount: number;
+};

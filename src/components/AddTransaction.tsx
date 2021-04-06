@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
 import {
 	MuiPickersUtilsProvider,
 	KeyboardDatePicker,
 } from "@material-ui/pickers";
+import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
-import { useHooks } from "../hooks/useHooks";
+
+// IMPORTING GLOBAL STATE
+import { GlobalState } from "../context/GlobalContext";
+
+// IMPORTING TYPES
+import { TransactionType, Inputs } from "../types/type";
 
 const AddTransaction: React.FC = () => {
-	const {
-		setSelectedDate,
-		selectedDate,
-		handleSubmit,
-		description,
-		setDescription,
-		amount,
-		setAmount,
-	} = useHooks();
+	const [selectedDate, setSelectedDate] = useState(new Date());
+	const { register, handleSubmit, errors, reset } = useForm<Inputs>();
+
+	const { addTransaction } = useContext<TransactionType>(GlobalState);
+
+	const onSubmit = (data: Inputs) => {
+		const date: string = selectedDate.toLocaleDateString();
+		const newTransaction = {
+			id: Math.floor(Math.random() * 1000000000),
+			...data,
+			amount: Number(data.amount),
+			date,
+		};
+
+		addTransaction(newTransaction);
+
+		setSelectedDate(new Date());
+
+		reset();
+	};
 
 	return (
 		<div className="addTransaction_section">
@@ -39,18 +56,24 @@ const AddTransaction: React.FC = () => {
 			<br />
 			<br />
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
 				<label htmlFor="descritpion">Description:</label>
 				<br />
 				<input
 					type="text"
-					id="descritpion"
+					name="description"
 					placeholder="Enter Description"
-					value={description}
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-						setDescription(event.target.value)
-					}
+					ref={register({ required: true, minLength: 4, maxLength: 12 })}
 				/>
+				{errors.description &&
+					errors.description.type === "required" &&
+					"Description is required"}
+				{errors.description &&
+					errors.description.type === "minLength" &&
+					"Minimum 4 Characters required"}
+				{errors.description &&
+					errors.description.type === "maxLength" &&
+					"Maximum 12 Characters Allowed"}
 
 				<br />
 				<br />
@@ -58,13 +81,19 @@ const AddTransaction: React.FC = () => {
 				<br />
 				<input
 					type="number"
-					id="amount"
+					name="amount"
 					placeholder="Enter Amount"
-					value={amount}
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-						setAmount(Number(event.target.value))
-					}
+					ref={register({ required: true, minLength: 1, maxLength: 12 })}
 				/>
+				{errors.amount &&
+					errors.amount.type === "required" &&
+					"Amount is required"}
+				{errors.amount &&
+					errors.amount.type === "minLength" &&
+					"Minimum 1 Digit required"}
+				{errors.amount &&
+					errors.amount.type === "maxLength" &&
+					"Maximum 12 Digits Allowed"}
 
 				<br />
 				<br />

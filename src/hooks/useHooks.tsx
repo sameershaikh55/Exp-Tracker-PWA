@@ -10,7 +10,7 @@ export const useHooks = () => {
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [description, setDescription] = useState<string>("");
 	const [amount, setAmount] = useState<number>(0);
-	let dateFiltered: string = selectedDate.toLocaleDateString();
+	// let dateFiltered: string = selectedDate.toLocaleDateString();
 
 	const { addTransaction } = useContext<TransactionType>(GlobalState);
 
@@ -19,7 +19,7 @@ export const useHooks = () => {
 
 		const newTransaction = {
 			id: Math.floor(Math.random() * 1000000000),
-			dateFiltered,
+			selectedDate,
 			description,
 			amount,
 		};
