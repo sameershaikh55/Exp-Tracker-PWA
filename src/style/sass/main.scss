@@ -156,6 +156,15 @@ html {
 		border-bottom: 1px solid black;
 	}
 
+	.errorInput {
+		border: 0.2rem solid red;
+		border-radius: 0.4rem;
+	}
+
+	.errors {
+		color: red !important;
+	}
+
 	& input,
 	button,
 	.MuiFormControl-root {
@@ -166,10 +175,16 @@ html {
 		padding: 0rem 1rem;
 		font-size: 1.6rem;
 		transition: 1s all;
+		border: none;
 
 		&:focus {
 			border: none;
-			outline: 1.4px solid $themeColor !important;
+			outline: none;
+		}
+
+		&.errorInput:focus {
+			border: 0.2rem solid red;
+			border-radius: 0.4rem;
 		}
 	}
 
@@ -281,21 +296,36 @@ html {
 		letter-spacing: 2.2px;
 		border-radius: 6px 6px 0px 0px;
 	}
-}
 
-.each_transaction {
-	padding: 1rem 2rem;
+	.each_transaction {
+		height: 6.5rem;
+		width: 100%;
+		@include VHcenter(row, start);
 
-	& div {
-		@include VHcenter(row, space-between);
-		font-size: 2rem;
-		letter-spacing: 1.2px;
-	}
+		& .EALeft_side {
+			margin-left: 5px;
+			width: 10%;
+		}
 
-	& div:nth-last-child(1) {
-		font-size: 1.1rem;
-		margin-top: -6px;
-		letter-spacing: 3px;
+		& .EARight_side {
+			width: 88%;
+			padding-right: 1.2rem;
+			@include VHcenter(row, space-between);
+
+			& .desc {
+				font-size: 1.8rem;
+			}
+			& .date {
+				letter-spacing: 3.2px;
+				font-size: 1.1rem;
+				font-weight: 600;
+				margin-top: -0.4rem;
+			}
+
+			& .amount {
+				font-size: 1.9rem;
+			}
+		}
 	}
 }
 
@@ -304,4 +334,18 @@ html {
 }
 // =========================================================================
 // == TRANSACTION HISTORY END
+// =========================================================================
+
+// =========================================================================
+// == MATERIAL UI OVERWRITE START
+// =========================================================================
+.MuiMenuItem-root {
+	font-size: 1.4rem !important;
+}
+
+.MuiPaper-elevation8 {
+	box-shadow: 0px 0px 2px #3f51b54f !important;
+}
+// =========================================================================
+// == MATERIAL UI OVERWRITE END
 // =========================================================================

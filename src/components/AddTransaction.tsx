@@ -60,40 +60,46 @@ const AddTransaction: React.FC = () => {
 				<label htmlFor="descritpion">Description:</label>
 				<br />
 				<input
+					className={errors.description && "errorInput"}
 					type="text"
 					name="description"
 					placeholder="Enter Description"
 					ref={register({ required: true, minLength: 4, maxLength: 12 })}
 				/>
-				{errors.description &&
-					errors.description.type === "required" &&
-					"Description is required"}
-				{errors.description &&
-					errors.description.type === "minLength" &&
-					"Minimum 4 Characters required"}
-				{errors.description &&
-					errors.description.type === "maxLength" &&
-					"Maximum 12 Characters Allowed"}
+				<span className="errors">
+					{errors.description &&
+						errors.description.type === "required" &&
+						"Description is required"}
+					{errors.description &&
+						errors.description.type === "minLength" &&
+						"Minimum 4 Characters required"}
+					{errors.description &&
+						errors.description.type === "maxLength" &&
+						"Maximum 12 Characters Allowed"}
+				</span>
 
 				<br />
 				<br />
 				<label htmlFor="amount">Amount:</label>
 				<br />
 				<input
+					className={errors.amount && "errorInput"}
 					type="number"
 					name="amount"
 					placeholder="Enter Amount"
 					ref={register({ required: true, minLength: 1, maxLength: 12 })}
 				/>
-				{errors.amount &&
-					errors.amount.type === "required" &&
-					"Amount is required"}
-				{errors.amount &&
-					errors.amount.type === "minLength" &&
-					"Minimum 1 Digit required"}
-				{errors.amount &&
-					errors.amount.type === "maxLength" &&
-					"Maximum 12 Digits Allowed"}
+				<span className="errors">
+					{errors.amount &&
+						errors.amount.type === "required" &&
+						"Amount is required"}
+					{errors.amount &&
+						errors.amount.type === "minLength" &&
+						"Minimum 1 Digit required"}
+					{errors.amount &&
+						errors.amount.type === "maxLength" &&
+						"Maximum 12 Digits Allowed"}
+				</span>
 
 				<br />
 				<br />

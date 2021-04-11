@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -12,13 +12,12 @@ import { GlobalState } from "../context/GlobalContext";
 import { TransactionType } from "../types/type";
 
 const History: React.FC = () => {
+	const [anchorEl, setAnchorEl] = useState<null>(null);
+
 	const { transactions } = useContext<TransactionType>(GlobalState);
 
 	const options = ["Edit", "Trash", "Delete"];
 
-	const ITEM_HEIGHT = 48;
-
-	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 
 	const handleClick = (event) => {
@@ -38,49 +37,46 @@ const History: React.FC = () => {
 					const sign = amount > 0 ? "+" : "-";
 					return (
 						<div key={id} className="each_transaction">
-							<div>
-								<div className="right">
-									<div>
-										<IconButton
-											aria-label="more"
-											aria-controls="long-menu"
-											aria-haspopup="true"
-											onClick={handleClick}
+							<div className="EALeft_side">
+								<IconButton
+									aria-label="more"
+									aria-controls="long-menu"
+									aria-haspopup="true"
+									onClick={handleClick}
+								>
+									<GrMoreVertical />
+								</IconButton>
+								<Menu
+									anchorEl={anchorEl}
+									keepMounted
+									open={open}
+									onClose={handleClose}
+									PaperProps={{
+										style: {
+											maxHeight: 48 * 4.5,
+											width: "20ch",
+										},
+									}}
+								>
+									{options.map((option) => (
+										<MenuItem
+											key={option}
+											selected={option === "Pyxis"}
+											onClick={handleClose}
 										>
-											<GrMoreVertical />
-										</IconButton>
-										<Menu
-											id="long-menu"
-											anchorEl={anchorEl}
-											keepMounted
-											open={open}
-											onClose={handleClose}
-											PaperProps={{
-												style: {
-													maxHeight: ITEM_HEIGHT * 4.5,
-													width: "20ch",
-												},
-											}}
-										>
-											{options.map((option) => (
-												<MenuItem
-													key={option}
-													selected={option === "Pyxis"}
-													onClick={handleClose}
-												>
-													{option}
-												</MenuItem>
-											))}
-										</Menu>
-									</div>
-									<div>
-										<div>{description}</div>
-										<div> {date} </div>
-									</div>
+											{option}
+										</MenuItem>
+									))}
+								</Menu>
+							</div>
+							<div className="EARight_side">
+								<div>
+									<div className="desc">{description}</div>
+									<div className="date"> {date} </div>
 								</div>
-								<p>
+								<div className="amount">
 									{sign}${Math.abs(amount)}
-								</p>
+								</div>
 							</div>
 						</div>
 					);
