@@ -64,7 +64,7 @@ const AddTransaction: React.FC = () => {
 					type="text"
 					name="description"
 					placeholder="Enter Description"
-					ref={register({ required: true, minLength: 4, maxLength: 12 })}
+					ref={register({ required: true, minLength: 4, maxLength: 12, pattern: /^([^0-9]*)$/ })}
 				/>
 				<span className="errors">
 					{errors.description &&
@@ -76,6 +76,9 @@ const AddTransaction: React.FC = () => {
 					{errors.description &&
 						errors.description.type === "maxLength" &&
 						"Maximum 12 Characters Allowed"}
+					{errors.description &&
+						errors.description.type === "pattern" &&
+						"Numbers Not Allowed"}
 				</span>
 
 				<br />

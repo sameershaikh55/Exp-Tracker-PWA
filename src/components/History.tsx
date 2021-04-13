@@ -24,7 +24,7 @@ const History: React.FC = () => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = () => {
+	const handleClose = (data) => {
 		setAnchorEl(null);
 	};
 
@@ -62,7 +62,7 @@ const History: React.FC = () => {
 										<MenuItem
 											key={option}
 											selected={option === "Pyxis"}
-											onClick={handleClose}
+											onClick={() => handleClose(option)}
 										>
 											{option}
 										</MenuItem>
