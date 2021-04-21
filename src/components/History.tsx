@@ -1,31 +1,35 @@
 import React, { useState, useContext } from "react";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-// import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { GrMoreVertical } from "react-icons/gr";
+// import IconButton from "@material-ui/core/IconButton";
+// import Menu from "@material-ui/core/Menu";
+// import MenuItem from "@material-ui/core/MenuItem";
+// import { GrMoreVertical } from "react-icons/gr";
+import { MdDelete } from "react-icons/md";
 
 // IMPORTING GLOBAL STATE
 import { GlobalState } from "../context/GlobalContext";
 
 // IMPORTING TYPES
-import { TransactionType } from "../types/type";
+import { ContextType } from "../types/type";
 
 const History: React.FC = () => {
-	const [anchorEl, setAnchorEl] = useState<null>(null);
+	// const [anchorEl, setAnchorEl] = useState<null>(null);
 
-	const { transactions } = useContext<TransactionType>(GlobalState);
+	const { transactions } = useContext<Partial<ContextType>>(GlobalState);
 
-	const options = ["Edit", "Trash", "Delete"];
+	// const options = ["Edit", "Trash", "Delete"];
 
-	const open = Boolean(anchorEl);
+	// const open = Boolean(anchorEl);
 
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
+	// const handleClick = (event) => {
+	// 	setAnchorEl(event.currentTarget);
+	// };
 
-	const handleClose = (data) => {
-		setAnchorEl(null);
+	// const handleClose = (data) => {
+	// 	setAnchorEl(null);
+	// };
+
+	const deleteBtn = (id) => {
+		console.log(id);
 	};
 
 	return (
@@ -38,7 +42,7 @@ const History: React.FC = () => {
 					return (
 						<div key={id} className="each_transaction">
 							<div className="EALeft_side">
-								<IconButton
+								{/* <IconButton
 									aria-label="more"
 									aria-controls="long-menu"
 									aria-haspopup="true"
@@ -67,7 +71,23 @@ const History: React.FC = () => {
 											{option}
 										</MenuItem>
 									))}
-								</Menu>
+								</Menu> */}
+								<button
+									onClick={() => deleteBtn(id)}
+									style={{
+										background: "transparent",
+										border: "none",
+										outline: "none",
+										cursor: "pointer",
+										fontSize: "22px",
+										color: "#ff1515",
+										paddingTop: "10px",
+										paddingLeft: "8px",
+										borderRadius: "50%",
+									}}
+								>
+									<MdDelete />
+								</button>
 							</div>
 							<div className="EARight_side">
 								<div>

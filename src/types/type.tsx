@@ -1,12 +1,19 @@
 // EACH TRANSACTION TYPE
+export type EachTransaction = {
+	id: number;
+	description: string;
+	amount: number;
+	date: string;
+};
+
 export type TransactionType = {
-	transactions: {
-		id: number;
-		description: string;
-		amount: number;
-		date: string;
-	}[];
-	addTransaction?: any;
+	transactions: EachTransaction[] | undefined;
+};
+
+export type ContextType = {
+	transactions: EachTransaction[];
+	addTransaction: (transaction: TransactionType) => void;
+	deleteTransaction: (id: number) => void;
 };
 
 // REDUCER ACTIONS TYPE
