@@ -12,9 +12,7 @@ import {
 } from "../types/type";
 
 const InitialState: ContextType = {
-	transactions: [
-		{ id: 1, description: "Cash", amount: 100.0, date: "27/3/2021" },
-	],
+	transactions: [],
 	addTransaction: (transaction: EachTransaction) => {},
 	deleteTransaction: (id: number) => {},
 };

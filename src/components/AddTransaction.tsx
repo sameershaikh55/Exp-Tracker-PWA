@@ -21,7 +21,6 @@ const AddTransaction: React.FC = () => {
 	const { addTransaction } = useContext(GlobalState);
 
 	const onSubmit = (data: Inputs) => {
-		console.log(data);
 		const date: string = selectedDate.toLocaleDateString();
 		const newTransaction: EachTransaction = {
 			id: Math.floor(Math.random() * 1000000000),

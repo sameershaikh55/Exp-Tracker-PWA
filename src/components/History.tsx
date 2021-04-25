@@ -14,7 +14,7 @@ import { GlobalState } from "../context/GlobalContext";
 const History: React.FC = () => {
 	// const [anchorEl, setAnchorEl] = useState<null>(null);
 
-	const { transactions } = useContext(GlobalState);
+	const { transactions, deleteTransaction } = useContext(GlobalState);
 
 	// const options = ["Edit", "Trash", "Delete"];
 
@@ -28,8 +28,8 @@ const History: React.FC = () => {
 	// 	setAnchorEl(null);
 	// };
 
-	const deleteBtn = (id) => {
-		console.log(id);
+	const deleteBtn = (id: number) => {
+		deleteTransaction(id);
 	};
 
 	return (

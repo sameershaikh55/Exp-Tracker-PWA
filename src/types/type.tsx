@@ -16,16 +16,15 @@ export type ContextType = {
 	deleteTransaction: (id: number) => void;
 };
 
-// REDUCER ACTIONS TYPE
-enum ActionKind {
-	Increase = "ADD_TRANSACTION",
-	Decrease = "DECREASE",
-}
-
-export type Action = {
-	type: ActionKind;
-	// payload: number;
-};
+// export type Action =
+// 	| {
+// 			type: "ADD_TRANSACTION";
+// 			payload: EachTransaction[];
+// 	  }
+// 	| {
+// 			type: "DELETE_TRANSACTION";
+// 			payload: number;
+// 	  };
 
 // GLOBAL PROVIDER
 export type ProviderType = {
