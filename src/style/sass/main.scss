@@ -269,6 +269,15 @@ html {
 	border-radius: 6px;
 	@include Shadow;
 
+	.noDataFound {
+		height: 80%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.6rem;
+		color: rgb(150, 150, 150);
+	}
+
 	& .TH-body {
 		overflow-y: scroll;
 		height: 89%;
@@ -332,6 +341,7 @@ html {
 .each_transaction:nth-child(odd) {
 	background-color: rgba(63, 81, 181, 0.1);
 }
+
 // =========================================================================
 // == TRANSACTION HISTORY END
 // =========================================================================

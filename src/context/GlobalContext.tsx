@@ -4,12 +4,7 @@ import { createContext, useReducer } from "react";
 import GlobalReducer from "./GlobalReducer";
 
 // IMPORTING TYPES
-import {
-	TransactionType,
-	ProviderType,
-	ContextType,
-	EachTransaction,
-} from "../types/type";
+import { ProviderType, ContextType, EachTransaction } from "../types/type";
 
 const InitialState: ContextType = {
 	transactions: [],

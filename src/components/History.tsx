@@ -33,16 +33,18 @@ const History: React.FC = () => {
 	};
 
 	return (
-		<div className="transaction_history">
-			<h1>Transaction History</h1>
-			<div className="TH-body">
-				{transactions.map((prev) => {
-					const { id, description, amount, date } = prev;
-					const sign = amount > 0 ? "+" : "-";
-					return (
-						<div key={id} className="each_transaction">
-							<div className="EALeft_side">
-								{/* <IconButton
+		<>
+			<div className="transaction_history">
+				<h1>Transaction History</h1>
+				{(transactions.length && (
+					<div className="TH-body">
+						{transactions.map((prev) => {
+							const { id, description, amount, date } = prev;
+							const sign = amount > 0 ? "+" : "-";
+							return (
+								<div key={id} className="each_transaction">
+									<div className="EALeft_side">
+										{/* <IconButton
 									aria-label="more"
 									aria-controls="long-menu"
 									aria-haspopup="true"
@@ -57,7 +59,7 @@ const History: React.FC = () => {
 									onClose={handleClose}
 									PaperProps={{
 										style: {
-											maxHeight: 48 * 4.5,
+											maxHeight: 48 * 4.5,	
 											width: "20ch",
 										},
 									}}
@@ -72,37 +74,39 @@ const History: React.FC = () => {
 										</MenuItem>
 									))}
 								</Menu> */}
-								<button
-									onClick={() => deleteBtn(id)}
-									style={{
-										background: "transparent",
-										border: "none",
-										outline: "none",
-										cursor: "pointer",
-										fontSize: "22px",
-										color: "#ff1515",
-										paddingTop: "10px",
-										paddingLeft: "8px",
-										borderRadius: "50%",
-									}}
-								>
-									<MdDelete />
-								</button>
-							</div>
-							<div className="EARight_side">
-								<div>
-									<div className="desc">{description}</div>
-									<div className="date"> {date} </div>
+										<button
+											onClick={() => deleteBtn(id)}
+											style={{
+												background: "transparent",
+												border: "none",
+												outline: "none",
+												cursor: "pointer",
+												fontSize: "22px",
+												color: "#ff1515",
+												paddingTop: "10px",
+												paddingLeft: "8px",
+												borderRadius: "50%",
+											}}
+										>
+											<MdDelete />
+										</button>
+									</div>
+									<div className="EARight_side">
+										<div>
+											<div className="desc">{description}</div>
+											<div className="date"> {date} </div>
+										</div>
+										<div className="amount">
+											{sign}${Math.abs(amount)}
+										</div>
+									</div>
 								</div>
-								<div className="amount">
-									{sign}${Math.abs(amount)}
-								</div>
-							</div>
-						</div>
-					);
-				})}
+							);
+						})}
+					</div>
+				)) || <div className="noDataFound"> No History Found! </div>}
 			</div>
-		</div>
+		</>
 	);
 };
 
