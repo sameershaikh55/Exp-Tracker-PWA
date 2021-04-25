@@ -12,27 +12,25 @@ import Button from "@material-ui/core/Button";
 import { GlobalState } from "../context/GlobalContext";
 
 // IMPORTING TYPES
-import { TransactionType, Inputs } from "../types/type";
+import { EachTransaction, Inputs } from "../types/type";
 
 const AddTransaction: React.FC = () => {
 	const [selectedDate, setSelectedDate] = useState(new Date());
-	const { register, handleSubmit, errors, reset } = useForm<Inputs>();
+	const { register, handleSubmit, errors, reset } = useForm();
 
-	const { addTransaction } = useContext<TransactionType>(GlobalState);
+	const { addTransaction } = useContext(GlobalState);
 
 	const onSubmit = (data: Inputs) => {
+		console.log(data);
 		const date: string = selectedDate.toLocaleDateString();
-		const newTransaction = {
+		const newTransaction: EachTransaction = {
 			id: Math.floor(Math.random() * 1000000000),
 			...data,
 			amount: Number(data.amount),
 			date,
 		};
-
 		addTransaction(newTransaction);
-
 		setSelectedDate(new Date());
-
 		reset();
 	};
 
@@ -64,7 +62,12 @@ const AddTransaction: React.FC = () => {
 					type="text"
 					name="description"
 					placeholder="Enter Description"
-					ref={register({ required: true, minLength: 4, maxLength: 12, pattern: /^([^0-9]*)$/ })}
+					ref={register({
+						required: true,
+						minLength: 4,
+						maxLength: 12,
+						pattern: /^([^0-9]*)$/,
+					})}
 				/>
 				<span className="errors">
 					{errors.description &&

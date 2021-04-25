@@ -7,12 +7,12 @@ export type EachTransaction = {
 };
 
 export type TransactionType = {
-	transactions: EachTransaction[] | undefined;
+	transactions: EachTransaction[];
 };
 
 export type ContextType = {
 	transactions: EachTransaction[];
-	addTransaction: (transaction: TransactionType) => void;
+	addTransaction: (transaction: EachTransaction) => void;
 	deleteTransaction: (id: number) => void;
 };
 

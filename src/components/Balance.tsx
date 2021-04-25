@@ -4,10 +4,10 @@ import React, { useContext } from "react";
 import { GlobalState } from "../context/GlobalContext";
 
 // IMPORTING TYPES
-import { TransactionType } from "../types/type";
+// import { TransactionType } from "../types/type";
 
 const Balance: React.FC = () => {
-	const { transactions } = useContext<TransactionType>(GlobalState);
+	const { transactions } = useContext(GlobalState);
 
 	// EXTRACT AMOUNTS FROM TRANSACTIONS
 	const total: number[] = transactions.map((prev) => prev.amount);

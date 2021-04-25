@@ -9,12 +9,12 @@ import { MdDelete } from "react-icons/md";
 import { GlobalState } from "../context/GlobalContext";
 
 // IMPORTING TYPES
-import { ContextType } from "../types/type";
+// import { ContextType } from "../types/type";
 
 const History: React.FC = () => {
 	// const [anchorEl, setAnchorEl] = useState<null>(null);
 
-	const { transactions } = useContext<Partial<ContextType>>(GlobalState);
+	const { transactions } = useContext(GlobalState);
 
 	// const options = ["Edit", "Trash", "Delete"];
 

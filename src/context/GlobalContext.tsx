@@ -4,21 +4,28 @@ import { createContext, useReducer } from "react";
 import GlobalReducer from "./GlobalReducer";
 
 // IMPORTING TYPES
-import { TransactionType, ProviderType, ContextType } from "../types/type";
+import {
+	TransactionType,
+	ProviderType,
+	ContextType,
+	EachTransaction,
+} from "../types/type";
 
-const InitialState: TransactionType = {
+const InitialState: ContextType = {
 	transactions: [
-		// { id: 1, description: "Cash", amount: 100.0, date: "27/3/2021" },
+		{ id: 1, description: "Cash", amount: 100.0, date: "27/3/2021" },
 	],
+	addTransaction: (transaction: EachTransaction) => {},
+	deleteTransaction: (id: number) => {},
 };
 
 // CREATING CONTEXT
-const GlobalState = createContext<Partial<ContextType>>({});
+const GlobalState = createContext(InitialState);
 
 const GlobalProvider: React.FC<ProviderType> = ({ children }) => {
 	const [state, dispatch] = useReducer(GlobalReducer, InitialState);
 
-	const addTransaction = (transaction: TransactionType) => {
+	const addTransaction = (transaction: EachTransaction) => {
 		dispatch({
 			type: "ADD_TRANSACTION",
 			payload: transaction,
